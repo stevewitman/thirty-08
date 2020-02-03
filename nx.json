@@ -17,6 +17,9 @@
     "app08-e2e": {
       "tags": [],
       "implicitDependencies": ["app08"]
+    },
+    "material": {
+      "tags": []
     }
   }
 }
