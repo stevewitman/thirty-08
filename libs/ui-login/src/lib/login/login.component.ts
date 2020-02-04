@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     if (this.form.invalid) return;
-    this.router.navigate(['/home']);
+    this.router.navigate(['/projects']);
   }
 
 }
