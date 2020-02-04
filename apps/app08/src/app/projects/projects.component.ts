@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material';
 
 import { ProjectsService, Project } from '@nx08/core-data';
+import { NotificationsService } from '@nx08/ui-notifications';
 
 @Component({
   selector: 'nx08-projects',
@@ -12,10 +14,12 @@ export class ProjectsComponent implements OnInit {
   projects$;
   selectedProject: Project;
   form: FormGroup;
+  message: string;
 
   constructor(
     private projectsService: ProjectsService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private notifications: NotificationsService
   ) { }
 
   ngOnInit() {
@@ -54,6 +58,8 @@ export class ProjectsComponent implements OnInit {
         this.getProjects();
         this.resetProject();
       });
+    this.message = project.title + ' added.'
+    this.notifications.notification(this.message)
   }
 
   updateProject(project) {
@@ -62,6 +68,8 @@ export class ProjectsComponent implements OnInit {
         this.getProjects();
         this.resetProject();
       });
+    this.message = project.title + ' updated.'
+    this.notifications.notification(this.message)
   }
 
   resetProject() {
@@ -81,6 +89,8 @@ export class ProjectsComponent implements OnInit {
   deleteProject(project) {
     this.projectsService.deleteProject(project.id)
       .subscribe(result => this.getProjects());
+    this.message = project.title + ' deleted.'
+    this.notifications.notification(this.message)
   }
 
 }

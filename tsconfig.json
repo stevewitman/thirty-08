@@ -18,7 +18,8 @@
     "paths": {
       "@nx08/material": ["libs/material/src/index.ts"],
       "@nx08/ui-login": ["libs/ui-login/src/index.ts"],
-      "@nx08/core-data": ["libs/core-data/src/index.ts"]
+      "@nx08/core-data": ["libs/core-data/src/index.ts"],
+      "@nx08/ui-notifications": ["libs/ui-notifications/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
