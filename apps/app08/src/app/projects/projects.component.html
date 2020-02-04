@@ -2,9 +2,12 @@
   <div class="column">
     <nx08-projects-list
       [projects]="projects$ | async"
+      (selecting)=selectProject($event)
     ></nx08-projects-list>
   </div>
   <div class="column">
-    <nx08-project-detail></nx08-project-detail>
+    <nx08-project-detail
+      [project]="selectedProject"
+    ></nx08-project-detail>
   </div>
 </div>

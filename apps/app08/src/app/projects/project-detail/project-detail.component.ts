@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'nx08-project-detail',
@@ -6,6 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./project-detail.component.scss']
 })
 export class ProjectDetailComponent implements OnInit {
+  currentProject;
+  originalTitle;
+
+  @Input() set project(value) {
+    if (value) this.originalTitle = value.title;
+    this.currentProject = Object.assign({}, value);
+  };
 
   constructor() { }
 

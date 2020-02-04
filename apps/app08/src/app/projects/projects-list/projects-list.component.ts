@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { Project } from '@nx08/core-data';
 
@@ -9,6 +9,7 @@ import { Project } from '@nx08/core-data';
 })
 export class ProjectsListComponent implements OnInit {
   @Input() projects: Project[];
+  @Output() selecting = new EventEmitter;
 
   constructor() { }
 

@@ -6,7 +6,8 @@
     <mat-list>
       <mat-list-item
         *ngFor="let project of projects"
-        style="cursor: pointer">
+        style="cursor: pointer"
+        (click)="selecting.emit(project)">
         <h4 mat-line>{{ project.title }}</h4>
         <p mat-line>{{ project.details }}</p>
       </mat-list-item>
