@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'nx08-project-detail',
@@ -13,10 +14,16 @@ export class ProjectDetailComponent implements OnInit {
     if (value) this.originalTitle = value.title;
     this.currentProject = Object.assign({}, value);
   };
+  @Input() form: FormGroup;
+  @Output() saving = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+    this.saving.emit(this.form.value);
   }
 
 }

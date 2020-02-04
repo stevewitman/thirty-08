@@ -8,6 +8,8 @@
   <div class="column">
     <nx08-project-detail
       [project]="selectedProject"
+      [form]="form"
+      (saving)="saveProject($event)"
     ></nx08-project-detail>
   </div>
 </div>
