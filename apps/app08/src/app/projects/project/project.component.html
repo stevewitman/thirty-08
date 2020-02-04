@@ -1,1 +1,17 @@
-<p>project works!</p>
+<div class="login-card" *ngIf="project$ | async as project">
+  <mat-card class="mat-elevation-z1">
+    <mat-card-header>
+      <mat-card-title><h2>{{ project.title }}</h2></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p class="full-width">{{ project.details }}</p>
+      <h5 class="full-width">Importance: {{ project.importanceLevel }}</h5>
+    </mat-card-content>
+    <div class="button-container" align="end">
+      <button
+        class="mat-raised-button"
+        color="primary"
+        (click)="onClick()">Back</button>
+    </div>
+  </mat-card>
+</div>

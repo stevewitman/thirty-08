@@ -2,6 +2,7 @@
   <mat-card-header>
     <mat-card-title>Projects</mat-card-title>
   </mat-card-header>
+  <mat-divider></mat-divider>
   <mat-card-content>
     <mat-list>
       <mat-list-item
@@ -17,6 +18,14 @@
             *ngIf="!readonly"
             (click)="deleting.emit(project);$event.stopImmediatePropagation()">
             <mat-icon>close</mat-icon>
+          </button>
+        </div>
+        <div class="button-container" align="end">
+          <button
+            mat-icon-button
+            (click)="$event.stopImmediatePropagation()"
+            [routerLink]="['/projects', project.id]">
+            <mat-icon>more_horiz</mat-icon>
           </button>
         </div>
       </mat-list-item>
