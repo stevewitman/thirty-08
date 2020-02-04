@@ -16,6 +16,7 @@ export class ProjectDetailComponent implements OnInit {
   };
   @Input() form: FormGroup;
   @Output() saving = new EventEmitter();
+  @Output() cancelling = new EventEmitter();
 
   constructor() { }
 
@@ -24,6 +25,10 @@ export class ProjectDetailComponent implements OnInit {
 
   onSubmit() {
     this.saving.emit(this.form.value);
+  }
+
+  onClear() {
+    this.cancelling.emit(this.currentProject);
   }
 
 }

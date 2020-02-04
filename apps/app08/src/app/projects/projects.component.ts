@@ -52,6 +52,7 @@ export class ProjectsComponent implements OnInit {
     this.projectsService.createProject(project)
       .subscribe(result => {
         this.getProjects();
+        this.resetProject();
       });
   }
 
@@ -59,7 +60,24 @@ export class ProjectsComponent implements OnInit {
     this.projectsService.updateProject(project)
       .subscribe(result => {
         this.getProjects();
+        this.resetProject();
       });
   }
+
+  resetProject() {
+    const emptyProject: Project = {
+      id: null,
+      title: '',
+      details: '',
+      importanceLevel: 0
+    }
+    this.selectProject(emptyProject);
+  }
+
+  cancel () {
+    this.resetProject();
+  }
+
+
 
 }
