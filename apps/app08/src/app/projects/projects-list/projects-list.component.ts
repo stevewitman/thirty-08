@@ -10,6 +10,8 @@ import { Project } from '@nx08/core-data';
 export class ProjectsListComponent implements OnInit {
   @Input() projects: Project[];
   @Output() selecting = new EventEmitter;
+  @Output() deleting = new EventEmitter();
+  @Input() readonly = false;
 
   constructor() { }
 
