@@ -23,6 +23,9 @@
     },
     "ui-login": {
       "tags": []
+    },
+    "core-data": {
+      "tags": []
     }
   }
 }
